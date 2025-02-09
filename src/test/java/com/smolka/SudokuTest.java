@@ -86,4 +86,44 @@ public class SudokuTest {
         boolean isValid = sudoku.checkVariant(variant);
         assert  isValid;
     }
+
+    @Test
+    public void test_finding3() {
+        int[][] field = {
+                { 0, 7, 0, 0, 0, 6, 0, 0, 0 },
+                { 0, 4, 0, 8, 0, 0, 0, 0, 6 },
+                { 6, 5, 0, 0, 7, 0, 0, 9, 0 },
+                { 0, 0, 0, 2, 0, 9, 0, 0, 0 },
+                { 0, 0, 1, 0, 8, 0, 0, 7, 9 },
+                { 0, 0, 0, 0, 3, 0, 1, 6, 0 },
+                { 0, 0, 6, 0, 0, 0, 2, 5, 0 },
+                { 0, 1, 9, 0, 0, 0, 0, 0, 0 },
+                { 7, 0, 4, 5, 0, 0, 0, 1, 3 }
+        };
+        Sudoku sudoku = new SudokuImpl(3, field);
+        int[][] variant = sudoku.getVariant();
+
+        boolean isValid = sudoku.checkVariant(variant);
+        assert  isValid;
+    }
+
+    @Test
+    public void test_finding() {
+        int[][] field = {
+                { 8, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 3, 6, 0, 0, 0, 0, 0 },
+                { 0, 7, 0, 0, 9, 0, 2, 0, 0 },
+                { 0, 5, 0, 0, 0, 7, 0, 0, 0 },
+                { 0, 0, 0, 0, 4, 5, 7, 0, 0 },
+                { 0, 0, 0, 1, 0, 0, 0, 3, 0 },
+                { 0, 0, 1, 0, 0, 0, 0, 6, 8 },
+                { 0, 0, 8, 5, 0, 0, 0, 1, 0 },
+                { 0, 9, 0, 0, 0, 0, 4, 0, 0 },
+        };
+        Sudoku sudoku = new SudokuImpl(3, field);
+        int[][] variant = sudoku.getVariant();
+
+        boolean isValid = sudoku.checkVariant(variant);
+        assert  isValid;
+    }
 }

@@ -103,6 +103,34 @@ public class PositionUtils {
         return result;
     }
 
+    public static Set<Integer> getSquaresWithPotentialConflicts(int squareIndex, int n) {
+        Set<Integer> result = new HashSet<>();
+        int sqrN = n * n;
+        Position startPosition = getStartCoordinatesBySquareIndex(squareIndex, n);
+
+        int row = startPosition.row();
+        for (int i = 0; i < sqrN; i++) {
+            Position newPosition = new Position(row, i);
+            int newSquareIndex = getSquareIndexByPosition(newPosition, n);
+            if (newSquareIndex == squareIndex) {
+                continue;
+            }
+            result.add(newSquareIndex);
+        }
+
+        int column = startPosition.column();
+        for (int i = 0; i < sqrN; i++) {
+            Position newPosition = new Position(i, column);
+            int newSquareIndex = getSquareIndexByPosition(newPosition, n);
+            if (newSquareIndex == squareIndex) {
+                continue;
+            }
+            result.add(newSquareIndex);
+        }
+
+        return result;
+    }
+
     public static Position getStartCoordinatesBySquareIndex(int squareIndex, int n) {
         int sqrN = n * n;
         assert squareIndex >= 0;

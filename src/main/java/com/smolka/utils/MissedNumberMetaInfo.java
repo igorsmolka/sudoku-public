@@ -1,7 +1,5 @@
 package com.smolka.utils;
 
-import com.smolka.impl.SudokuImpl;
-
 import java.util.Objects;
 import java.util.Set;
 
